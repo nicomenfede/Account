@@ -9,11 +9,14 @@ public class Account
         Publish,
         Submit,
         Comment,
-        Modify
+        Modify,
+        Writer = Submit | Modify,
+        Editor = Delete | Publish | Comment,
+        Owner = Writer | Editor 
     }
 
     public static void Main(string[] args)
     {
-        //Console.WriteLine(Access.Writer.HasFlag(Access.Delete)); //Should print: "False"
+        Console.WriteLine(Access.Writer.HasFlag(Access.Delete)); //Should print: "False"
     }
 }
